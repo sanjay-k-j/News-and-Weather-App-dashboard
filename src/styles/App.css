@@ -6,3 +6,26 @@
 .custom-card-bg {
     background-color: #6e9593; 
 }
+
+
+.container {
+    margin-top: 20px;
+   
+}
+
+.custom-card-bg {
+    background-color: #6e9593; 
+}
+
+
+
+body {
+    background: linear-gradient(to bottom, #7adaa7, #5daeff); /* Example gradient colors */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    min-height: 100vh; /* Ensure full viewport height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    font-family: Arial, sans-serif; 
+}
