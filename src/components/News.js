@@ -4,7 +4,7 @@ import axios from 'axios';
 const News = () => {
     const [news, setNews] = useState([]);
     const [error, setError] = useState(null);
-    const API_KEY = '1314f4e590ff4d23b464b0c7c5c92e8d';
+    const API_KEY = '44f6accc985d470abbd911ffdf26044b';
     const COUNTRY = 'in'; 
 
     useEffect(() => {
