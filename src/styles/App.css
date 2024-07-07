@@ -8,16 +8,6 @@
 }
 
 
-.container {
-    margin-top: 20px;
-   
-}
-
-.custom-card-bg {
-    background-color: #6e9593; 
-}
-
-
 
 body {
     background: linear-gradient(to bottom, #7adaa7, #5daeff); /* Example gradient colors */
