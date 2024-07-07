@@ -6,3 +6,19 @@
 .custom-card-bg {
     background-color: #6e9593; 
 }
+
+h1{
+    color: aliceblue;
+}
+
+body {
+    background: linear-gradient(to bottom right, #012053, #17e652);
+
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-family: Arial, sans-serif; 
+}

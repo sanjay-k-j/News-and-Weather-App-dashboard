@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './News.css'; 
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -20,25 +21,22 @@ const News = () => {
         fetchNews();
     }, [API_KEY, COUNTRY]);
 
-    if (error) {
-        return <div>{error}</div>;
-    }
-
-    if (!news.length) {
-        return <div>Loading...</div>;
-    }
+    const handleNewsClick = (url) => {
+        window.open(url, '_blank');
+    };
 
     return (
-        <div>
+        <div className="news-container">
             <h3>Top News Headlines</h3>
-            <ul>
+            {error && <div className="error-message">{error}</div>}
+            <div className="news-list">
                 {news.map((article, index) => (
-                    <li key={index}>
-                        <a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a>
-                        <p>{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
-                    </li>
+                    <div key={index} className="news-card" onClick={() => handleNewsClick(article.url)}>
+                        <h4>{article.title}</h4>
+                        <p className="news-source">{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
