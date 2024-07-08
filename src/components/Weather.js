@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import weatherIcon from './img.png'; // Import the image file
-import './Weather.css';
+import './Weather.css'; // Import the CSS file
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
     const W_API_KEY = 'b01f1c37ac0036b041c535fcd73273a4'; // Replace with your valid API key
-    const CITY = 'Bengaluru'; // City name
-    const COUNTRY_CODE = 'in'; // Country code
+    const CITY = 'Bengaluru'; 
+    const COUNTRY_CODE = 'in'; 
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -38,8 +38,8 @@ const Weather = () => {
                 <p>{weather.main.temp}°C</p>
             </div>
             <div className='icon_con'>
-            <img src={weatherIcon} alt="Weather icon" className="weather-icon" style={{ width: '25px', height: '25px' }} />
-            <p>{weather.weather[0].description}</p>
+                <img src={weatherIcon} alt="Weather icon" className="weather-icon" />
+                <p>{weather.weather[0].description}</p>
             </div>
         </div>
     );

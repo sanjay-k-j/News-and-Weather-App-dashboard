@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './News.css'; 
+import './News.css'; // Import the CSS file
 
 const News = () => {
     const [news, setNews] = useState([]);
     const [error, setError] = useState(null);
     const API_KEY = '44f6accc985d470abbd911ffdf26044b';
-    
-    // const API_KEY = 'api';
     const COUNTRY = 'in'; 
 
     useEffect(() => {
@@ -23,22 +21,25 @@ const News = () => {
         fetchNews();
     }, [API_KEY, COUNTRY]);
 
-    const handleNewsClick = (url) => {
-        window.open(url, '_blank');
-    };
+    if (error) {
+        return <div className="error-message">{error}</div>;
+    }
+
+    if (!news.length) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="news-container">
             <h3>Top News Headlines</h3>
-            {error && <div className="error-message">{error}</div>}
-            <div className="news-list">
+            <ul className="news-list">
                 {news.map((article, index) => (
-                    <div key={index} className="news-card" onClick={() => handleNewsClick(article.url)}>
+                    <li key={index} className="news-card" onClick={() => window.open(article.url, '_blank')}>
                         <h4>{article.title}</h4>
                         <p className="news-source">{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

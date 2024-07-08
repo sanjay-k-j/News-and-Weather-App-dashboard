@@ -1,4 +1,3 @@
-
 .weather_main_div {
     display: flex; 
     flex-direction: row;
@@ -8,37 +7,53 @@
     padding: 2rem;
     border-radius: 0.2rem; 
     color: #fff; 
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .name_temp {
-    display: flex; /* Use flexbox for inner layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Left align items */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 
 .name_temp h3 {
     margin: 0;
-    font-size: 1.5rem; /* Font size for city name */
+    font-size: 1.5rem; 
 }
 
 .name_temp p {
-    margin: 5px 0 0; /* Adjust margin for temperature */
-    font-size: 1rem; /* Font size for temperature */
+    margin: 5px 0 0; 
+    font-size: 1rem; 
 }
 
 .icon_con {
-    display: flex; /* Use flexbox for inner layout */
-    flex-direction: column; /* Stack items vertically */
+    display: flex; 
+    flex-direction: column; 
     align-items: flex-start; 
 }
 
 .icon_con img {
-    width: 25px; /* Adjust icon size */
-    height: 25px; /* Adjust icon size */
-    margin-right: 10px; /* Margin to separate icon from description */
+    width: 25px; 
+    height: 25px; 
+    margin-right: 10px; 
 }
 
 .icon_con p {
-    margin: 0; /* Remove default margin */
-    font-size: 1rem; /* Font size for description */
+    margin: 0; 
+    font-size: 1rem; 
+}
+
+@media (max-width: 768px) {
+    .weather_main_div {
+        flex-direction: column;
+        align-items: flex-start; 
+        padding: 1rem;
+    }
+
+    .icon_con {
+        align-items: flex-end;
+        margin-top: 1rem;
+    }
 }
