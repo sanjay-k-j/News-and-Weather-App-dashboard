@@ -5,21 +5,27 @@ import './News.css'; // Import the CSS file
 const News = () => {
     const [news, setNews] = useState([]);
     const [error, setError] = useState(null);
-    const API_KEY = '44f6accc985d470abbd911ffdf26044b';
-    const COUNTRY = 'in'; 
+    const API_URL = 'https://hn.algolia.com/api/v1/search?tags=front_page';
 
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${COUNTRY}&apiKey=${API_KEY}`);
-                setNews(response.data.articles.slice(0, 5));
+                const response = await axios.get(API_URL);
+                const topFiveNews = response.data.hits.slice(0, 5).map(article => ({
+                    title: article.title,
+                    url: article.url,
+                    source: article.author,
+                    publishedAt: article.created_at,
+                }));
+                setNews(topFiveNews);
             } catch (err) {
+                console.error('Error fetching news:', err);
                 setError('Failed to fetch news');
             }
         };
 
         fetchNews();
-    }, [API_KEY, COUNTRY]);
+    }, []);
 
     if (error) {
         return <div className="error-message">{error}</div>;
@@ -36,7 +42,7 @@ const News = () => {
                 {news.map((article, index) => (
                     <li key={index} className="news-card" onClick={() => window.open(article.url, '_blank')}>
                         <h4>{article.title}</h4>
-                        <p className="news-source">{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
+                        <p className="news-source">{article.source} - {new Date(article.publishedAt).toLocaleDateString()}</p>
                     </li>
                 ))}
             </ul>
