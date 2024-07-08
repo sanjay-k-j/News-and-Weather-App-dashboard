@@ -6,6 +6,8 @@ const News = () => {
     const [news, setNews] = useState([]);
     const [error, setError] = useState(null);
     const API_KEY = '44f6accc985d470abbd911ffdf26044b';
+    
+    // const API_KEY = 'api';
     const COUNTRY = 'in'; 
 
     useEffect(() => {

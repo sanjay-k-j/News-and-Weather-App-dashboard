@@ -1,14 +1,13 @@
-/* src/components/Weather.css */
 
 .weather_main_div {
-    display: flex; /* Use flexbox for layout */
+    display: flex; 
     flex-direction: row;
-    justify-content: space-between; /* Distribute items evenly */
-    align-items: flex-end; /* Center items vertically */
-    background-color: rgb(17, 11, 41); /* Dark background color */
-    padding: 20px;
-    border-radius: 0.2rem; /* Border radius for the dark background */
-    color: #fff; /* Text color */
+    justify-content: space-between;
+    align-items: flex-end; 
+    background-color: rgb(17, 11, 41); 
+    padding: 2rem;
+    border-radius: 0.2rem; 
+    color: #fff; 
 }
 
 .name_temp {

@@ -6,14 +6,14 @@ import './Weather.css';
 const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
-    const API_KEY = 'b01f1c37ac0036b041c535fcd73273a4'; // Replace with your valid API key
+    const W_API_KEY = 'b01f1c37ac0036b041c535fcd73273a4'; // Replace with your valid API key
     const CITY = 'Bengaluru'; // City name
     const COUNTRY_CODE = 'in'; // Country code
 
     useEffect(() => {
         const fetchWeather = async () => {
             try {
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY_CODE}&appid=${API_KEY}&units=metric`);
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY_CODE}&appid=${W_API_KEY}&units=metric`);
                 setWeather(response.data);
             } catch (err) {
                 setError('Failed to fetch weather data');
@@ -21,7 +21,7 @@ const Weather = () => {
         };
 
         fetchWeather();
-    }, [API_KEY, CITY, COUNTRY_CODE]);
+    }, [W_API_KEY, CITY, COUNTRY_CODE]);
 
     if (error) {
         return <div>{error}</div>;
